@@ -49,3 +49,6 @@ URxvt*tabbedex.tab-fg: 110
 URxvt*tabbedex.tab-bg: 236
 URxvt*tabbedex.transparent: true
 URxvt*tabbedex.new-button: false
+! transparency
+urxvt*transparent: true
+urxvt*shading: 75
