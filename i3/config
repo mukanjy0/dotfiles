@@ -174,6 +174,7 @@ bindsym $mod+r mode "resize"
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # special
 set_from_resource $foreground foreground #C6C6C6
@@ -246,13 +247,13 @@ exec urxvtc -name htop_scratchpad -e htop
 ####################
 
 # standard lock screen
-set $i3lockwall i3lock -i ~/.config/i3/feh/smile.png
+set $i3lockwall i3lock -i ~/.config/i3/feh/endorsi.png
 # blurred lock screen
-set $i3lockwall sh ~/.config/i3/scripts/lock.sh
-bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
+# set $i3lockwall sh ~/.config/i3/scripts/lock.sh
+# bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
 
 # set wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/feh/smile.png
+exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/feh/endorsi.png
 
 # hover doesn't change focus
 focus_follows_mouse no
