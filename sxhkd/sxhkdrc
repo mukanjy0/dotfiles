@@ -1,0 +1,4 @@
+Shift_L + Alt_L
+    setxkbmap -query | grep -q 'latam' && setxkbmap us || setxkbmap latam,us
+Shift_R + Alt_R
+    setxkbmap -query | grep -q 'latam' && setxkbmap us || setxkbmap latam,us
