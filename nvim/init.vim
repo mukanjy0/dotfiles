@@ -18,10 +18,10 @@ set termguicolors
 " +------------------+
 
 " Source plugin definition file
-" source ~/.config/nvim/init_plugins.vim
+source $XDG_CONFIG_HOME/nvim/init_plugins.vim
 
 " source every plugin configs
-for file in split(glob('$HOME/.local/share/nvim/pluggedconf/*.nvimrc'), '\n')
+for file in split(glob('$XDG_DATA_HOME/nvim/pluggedconf/*.nvimrc'), '\n')
     execute 'source' file
 endfor
 
@@ -32,10 +32,10 @@ endfor
 " lua require('basic')
 
 " Visual
-" let g:tokyonight_enable_italic = 1
-" let g:tokyonight_style = 'night'
-" let g:tokyonight_transparent_background = 1
-" colorscheme tokyonight
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_style = 'night'
+let g:tokyonight_transparent_background = 1
+colorscheme tokyonight
 
 " +------------------+
 " |      mappings    |
@@ -136,78 +136,77 @@ endif
 " +------------------+
 
 command CDC cd %:p:h " change directory to current file
-command CP cd ~/Code/Competitive/
 
 " +------------------+
 " |       CoC        |
 " +------------------+
 
-" let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-emmet', 'coc-jedi', 'coc-webview', 'coc-markdown-preview-enhanced']
-" 
-" Use tab for trigger completion with characters ahead and navigate.
-" inoremap <silent><expr> <TAB>
-"       \ coc#pum#visible() ? coc#pum#next(1) :
-"       \ CheckBackspace() ? "\<Tab>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-" 
-" inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<cr>"
-" inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+ let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-emmet', 'coc-jedi', 'coc-webview', 'coc-markdown-preview-enhanced']
+ 
+ Use tab for trigger completion with characters ahead and navigate.
+ inoremap <silent><expr> <TAB>
+       \ coc#pum#visible() ? coc#pum#next(1) :
+       \ CheckBackspace() ? "\<Tab>" :
+       \ coc#refresh()
+ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+ 
+ inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<cr>"
+ inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" GoTo code navigation.
-" nnoremap <silent> gd <Plug>(coc-definition)
-" nnoremap <silent> gD <Plug>(coc-type-definition)
-" nnoremap <silent> gi <Plug>(coc-implementation)
-" nnoremap <silent> gr <Plug>(coc-references)
+ GoTo code navigation.
+ nnoremap <silent> gd <Plug>(coc-definition)
+ nnoremap <silent> gD <Plug>(coc-type-definition)
+ nnoremap <silent> gi <Plug>(coc-implementation)
+ nnoremap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-" nnoremap <silent> K :call ShowDocumentation()<CR>
+ Use K to show documentation in preview window.
+ nnoremap <silent> K :call ShowDocumentation()<CR>
 
-" Highlight the symbol and its references when holding the cursor.
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+ Highlight the symbol and its references when holding the cursor.
+ autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-" nmap <leader>rn <Plug>(coc-rename)
-" 
-" function! ShowDocumentation()
-"   if CocAction('hasProvider', 'hover')
-"     call CocActionAsync('doHover')
-"   else
-"     call feedkeys('K', 'in')
-"   endif
-" endfunction
+ Symbol renaming.
+ nmap <leader>rn <Plug>(coc-rename)
+ 
+ function! ShowDocumentation()
+   if CocAction('hasProvider', 'hover')
+     call CocActionAsync('doHover')
+   else
+     call feedkeys('K', 'in')
+   endif
+ endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+ Highlight the symbol and its references when holding the cursor.
+ autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" use <tab> for trigger completion and navigate to the next complete item
-" function! CheckBackspace() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
+ use <tab> for trigger completion and navigate to the next complete item
+ function! CheckBackspace() abort
+   let col = col('.') - 1
+   return !col || getline('.')[col - 1]  =~# '\s'
+ endfunction
 
-" inoremap <silent><expr> <C-n><Tab>
-"       \ coc#pum#visible() ? coc#pum#next(1) :
-"       \ CheckBackspace() ? "\<C-n><Tab>" :
-"       \ coc#refresh()
-" 
-" " Mappings for CoCList
-" " Show all diagnostics.
-" nnoremap <silent><nowait> <space>ca  :<C-u>CocList diagnostics<cr>
-" " Manage extensions.
-" nnoremap <silent><nowait> <space>ce  :<C-u>CocList extensions<cr>
-" " Show commands.
-" nnoremap <silent><nowait> <space>cc  :<C-u>CocList commands<cr>
-" " Find symbol of current document.
-" nnoremap <silent><nowait> <space>co  :<C-u>CocList outline<cr>
-" " Search workspace symbols.
-" nnoremap <silent><nowait> <space>cs  :<C-u>CocList -I symbols<cr>
-" " Do default action for next item.
-" nnoremap <silent><nowait> <space>cj  :<C-u>CocNext<CR>
-" " Do default action for previous item.
-" nnoremap <silent><nowait> <space>ck  :<C-u>CocPrev<CR>
-" " Resume latest coc list.
-" nnoremap <silent><nowait> <space>cp  :<C-u>CocListResume<CR>
+ inoremap <silent><expr> <C-n><Tab>
+       \ coc#pum#visible() ? coc#pum#next(1) :
+       \ CheckBackspace() ? "\<C-n><Tab>" :
+       \ coc#refresh()
+ 
+ " Mappings for CoCList
+ " Show all diagnostics.
+ nnoremap <silent><nowait> <space>ca  :<C-u>CocList diagnostics<cr>
+ " Manage extensions.
+ nnoremap <silent><nowait> <space>ce  :<C-u>CocList extensions<cr>
+ " Show commands.
+ nnoremap <silent><nowait> <space>cc  :<C-u>CocList commands<cr>
+ " Find symbol of current document.
+ nnoremap <silent><nowait> <space>co  :<C-u>CocList outline<cr>
+ " Search workspace symbols.
+ nnoremap <silent><nowait> <space>cs  :<C-u>CocList -I symbols<cr>
+ " Do default action for next item.
+ nnoremap <silent><nowait> <space>cj  :<C-u>CocNext<CR>
+ " Do default action for previous item.
+ nnoremap <silent><nowait> <space>ck  :<C-u>CocPrev<CR>
+ " Resume latest coc list.
+ nnoremap <silent><nowait> <space>cp  :<C-u>CocListResume<CR>
 
 " +------------------+
 " |     prettier     |

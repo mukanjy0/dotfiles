@@ -5,6 +5,10 @@
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim/init.vim"
+ln -sf "$DOTFILES/nvim/init_plugins.vim" "$XDG_CONFIG_HOME/nvim/init_plugins.vim"
+# UltiSnips
+mkdir -p "$XDG_CONFIG_HOME/nvim/UltiSnips"
+ln -sf "$DOTFILES/nvim/UltiSnips/cpp.snippets" "$XDG_CONFIG_HOME/nvim/UltiSnips/cpp.snippets"
 #######
 # X11 #
 #######
